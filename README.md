@@ -1,6 +1,6 @@
 # Iranian Social Norm Dataset
 
-Welcome to the Iranian Social Norm Dataset repository! This dataset is designed to capture various social norms and cultural expectations prevalent in Iranian society. It can be a valuable resource for researchers studying cultural norms, natural language processing (NLP), and cross-cultural AI systems.
+Welcome to the Iranian Social Norm Dataset repository! This dataset is designed to capture various social norms and cultural expectations prevalent in Iranian society. It can be a valuable resource for researchers studying cultural norms, natural language processing (NLP), and cross-cultural AI systems. This datasets is prestened in the paper "Can I Introduce My Boyfriend to My Grandmother? Evaluating Large Language Models Capabilities on Iranian Social Norm Classification" by Saffari et al., accepted at NAACL 2025.
 
 ## Dataset Description
 
@@ -71,6 +71,36 @@ The dataset can be used for various research purposes, including but not limited
 ## Files
 - [ISN] FINAL - w_demographiccols-updated.csv: contains the dataset along with the demographic columns separately.
 - [ISN] FINAL - wo_demographiccols-updated.csv: contains only the joint demographic features.
+
+
+## 📝 Citation
+
+If you use these datasets in your research, please cite:
+
+```bibtex
+
+@inproceedings{saffari-etal-2025-introduce,
+    title = "Can {I} Introduce My Boyfriend to My Grandmother? Evaluating Large Language Models Capabilities on {I}ranian Social Norm Classification",
+    author = "Saffari, Hamidreza  and
+      Shafiei, Mohammadamin  and
+      Rooein, Donya  and
+      Pierri, Francesco  and
+      Nozza, Debora",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2025",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-naacl.337/",
+    doi = "10.18653/v1/2025.findings-naacl.337",
+    pages = "6060--6074",
+    ISBN = "979-8-89176-195-7",
+}
+
+```
 
 ## License
 
