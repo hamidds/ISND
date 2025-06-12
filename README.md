@@ -1,84 +1,196 @@
-# Iranian Social Norm Dataset
+# Iranian Social Norm Dataset (ISN)
 
-Welcome to the Iranian Social Norm Dataset repository! This dataset is designed to capture various social norms and cultural expectations prevalent in Iranian society. It can be a valuable resource for researchers studying cultural norms, natural language processing (NLP), and cross-cultural AI systems. This dataset is prestened in the paper "Can I Introduce My Boyfriend to My Grandmother? Evaluating Large Language Models Capabilities on Iranian Social Norm Classification" by Saffari et al., accepted at NAACL 2025.
+[![Paper](https://img.shields.io/badge/Paper-NAACL%202025-blue)](https://aclanthology.org/2025.findings-naacl.337/)
+[![License](https://img.shields.io/badge/License-CC--BY--4.0-green)](LICENSE)
+[![Dataset](https://img.shields.io/badge/Dataset-1%2C699%20samples-orange)]()
+[![Language](https://img.shields.io/badge/Language-Farsi%20%7C%20English-red)]()
 
-## Dataset Description
+> **Can I Introduce My Boyfriend to My Grandmother? Evaluating Large Language Models Capabilities on Iranian Social Norm Classification**
 
-| Column Name                       | Description                                                                                                                                                                                                                  | Possible Values                                                                                                                                                             |
-|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Norm - EN                         | The specific social norm or cultural expectation being represented, stated clearly and concisely in English.                                                                                                             | e.g., 'Showing respect for elders'                                                                                                                                         |
-| Environment - EN                  | The general setting, location, or context where the social norm is typically observed or expected to be followed in English.                                                                                             | e.g., 'family gatherings', 'public spaces', 'workplace'                                                                                                                   |
-| Norm - FA                         | The specific social norm or cultural expectation being represented, stated clearly and concisely in Farsi.                                                                                                                | e.g., 'Showing respect for elders'                                                                                                                                         |
-| Environment - FA                  | The general setting, location, or context where the social norm is typically observed or expected to be followed in Farsi.                                                                                               | e.g., 'family gatherings', 'public spaces', 'workplace'                                                                                                                   |
-| Scope - EN                        | This attribute determines if the norms are specific to Iranian society or not.                                                                                                                                           | Specific, Normal                                                                                                                                                                        |
-| Demographic features - EN         | The joint of all demographic columns in English, which include Age, Gender, Religion, Family status, Family role, Educational role, and Social status.                                                                      | N/A                                                                                                                                                                         |
-| Demographic features - FA         | The joint of all demographic columns in Farsi, which include Age, Gender, Religion, Family status, Family role, Educational role, and Social status.                                                                        | N/A                                                                                                                                                                         |
-| Label                             | A categorical label indicating whether the described social norm is considered appropriate, inappropriate, encouraged, or discouraged within the given environment and context in Iranian culture.                          | Expected, Normal, Taboo                                                                                                                                                   |
+Welcome to the **Iranian Social Norm (ISN) Dataset** repository! This is the first comprehensive dataset designed to capture social norms and cultural expectations in Iranian society, featuring 1,699 carefully annotated samples in both Farsi and English.
 
-### Demographic Features
+## 🌟 Overview
 
-#### English
+Social norms are the unwritten rules that govern behavior within societies. The ISN dataset addresses a critical gap in AI research by providing culturally-specific data for Iranian society, enabling the development of more inclusive and culturally-aware AI systems.
 
-- **Age**: The age of the person that the norm is associated with. Possible values: child, adult, elderly, young.
-- **Gender**: The gender of the person that the norm is associated with. Possible values: woman, man.
-- **Religion**: The religion of the person that the norm is associated with. Possible values: Muslim, Christian, Jewish, Zoroastrian, Not Muslim.
-- **Ethnicity**: The ethnicity of the person that the norm is associated with. Possible values: Fars, Turk, Kurd, Arab, Baluch, Turkmen, Qashqai.
-- **Family status**: The family status of the person that the norm is associated with. Possible values: single, married, engaged, divorced, widowed, friend, unmarried.
-- **Family role**: The family role of the person with whom the norm is associated. Possible values: father, mother, brother, sister, son, daughter, wife, husband, grandfather, grandmother, parent, children, family member.
-- **Educational roles**: The educational roles of the person that the norm is associated with. Possible values: student, teacher, professor, university student.
-- **Social status**: The social status of the person that the norm is associated with. Possible values: poor, middle class, wealthy.
+### Why ISN Matters
+- **First of its kind**: The only dataset exclusively focused on Iranian social norms
+- **Bilingual**: Available in both Farsi and English to support diverse research communities
+- **Culturally nuanced**: Distinguishes between Iran-specific norms and general ones
+- **Comprehensive**: Includes environmental context and demographic features
+- **Research-validated**: Peer-reviewed and accepted at NAACL 2025
 
-#### Farsi
+## 📊 Quick Stats
 
-- **Age**: The age of the person that the norm is associated with. Possible values: کودک, بالغ, مسن, جوان.
-- **Gender**: The gender of the person that the norm is associated with. Possible values: زن, مرد.
-- **Religion**: The religion of the person that the norm is associated with. Possible values: مسلمان, مسیحی, یهودی, زرتشتی, نامسلمان.
-- **Ethnicity**: The ethnicity of the person that the norm is associated with. Possible values: فارس, ترک, کردی, عرب, بلوچ, ترکمن, قشقایی.
-- **Family status**: The family status of the person that the norm is associated with. Possible values: مجرد, متاهل, نامزد , جدا شده, بیوه, دوست, ازدواج نکرده.
-- **Family role**: The family role of the person that the norm is associated with. Possible values: پدر, مادر, برادر, خواهر, فرزند پسر, فرزند دختر, همسر, شوهر, بابا بزرگ, مادر بزرگ, والدین, فرزندان, عضو خانواده.
-- **Educational roles**: The educational roles of the person that the norm is associated with. Possible values: دانش آموز, معلم, استاد, دانشجو.
-- **Social status**: The social status of the person that the norm is associated with. Possible values: فقیر, طبقه متوسط, ثروتمند.
+| Metric | Value |
+|--------|-------|
+| **Total Samples** | 1,699 |
+| **Languages** | Farsi + English |
+| **Unique Environments** | 197 |
+| **Iran-Specific Norms** | 44.1% |
+| **Annotator Agreement** | 56% (Fleiss' Kappa) |
 
-- The description of the labels is as follows:
-  - **Expected:** Widely accepted, aligned with cultural norms in Iran.
-  - **Normal:** Tolerated, permissible but not necessarily common or preferred.
-  - **Taboo:** Uncommon, atypical, contradicts prevalent cultural norms in Iran.
+## 🎯 Dataset Structure
 
-## Data Statistics
+### Core Components
 
-The dataset contains 1,699 samples. The distribution of labels is as follows:
-- **Expected:** 44.9%
-- **Normal:** 31.1%
-- **Taboo:** 24%
+| Component | Description | Example |
+|-----------|-------------|---------|
+| **Norm** | Specific social norm or cultural expectation | "Showing respect for elders" |
+| **Environment** | Setting where the norm applies | "family gatherings", "workplace", "mosque" |
+| **Demographic Features** | Characteristics of the person (age, gender, religion, etc.) | "female; muslim; unmarried" |
+| **Label** | Acceptability classification | Expected, Normal, Taboo |
+| **Scope** | Cultural specificity | Specific (Iran-only), General (universal) |
 
-## Data Construction
+### Label Definitions
 
-The data was constructed using large language models (LLMs) and prompt engineering techniques. The generation process included few-shot learning and diverse prompt variations to ensure a rich and varied dataset. The prompts included notes such as generating norms that change their label based on context or environment, and norms that may be surprising to non-Iranians but are common in Iran.
+- **Expected** (44.9%): Widely accepted, aligned with cultural norms in Iran
+- **Normal** (31.1%): Tolerated, permissible but not necessarily common or preferred  
+- **Taboo** (24.0%): Uncommon, atypical, contradicts prevalent cultural norms in Iran
 
-Native Farsi speakers reviewed the generated norms to ensure cultural accuracy and relevance. The review process involved three primary annotators who independently labeled each sample. 
+### 👥 Demographic Features
 
-## Translation to English
+The dataset includes detailed demographic characteristics (522 out of 1,699 entries have demographic features):
 
-To facilitate broader research applications and enhance the cultural awareness of English-language AI models, the norms were also translated into English. This translation enables cross-cultural comparisons and helps develop more inclusive AI systems. 
+**English**: Age (child, adult, elderly, young) | Gender (woman, man) | Religion (Muslim, Christian, Jewish, Zoroastrian, Not Muslim) | Family Status (single, married, engaged, divorced, widowed) | Family Role (father, mother, son, daughter, etc.) | Educational Role (student, teacher, professor) | Social Status (poor, middle class, wealthy) | Ethnicity (Fars, Turk, Kurd, Arab, Baluch, Turkmen, Qashqai)
 
-## Usage
+**Farsi**: سن (کودک، بالغ، مسن، جوان) | جنسیت (زن، مرد) | دین (مسلمان، مسیحی، یهودی، زرتشتی، نامسلمان) | وضعیت خانوادگی | نقش خانوادگی | نقش آموزشی | وضعیت اجتماعی | قومیت
 
-The dataset can be used for various research purposes, including but not limited to:
-- Studying social norms and cultural expectations in Iranian society.
-- Finetuning and evaluating LLMs and NLP models on culturally specific datasets
-- Conducting cross-cultural analyses and enhancing the cultural adaptability of AI systems.
+### 📝 Sample Data
 
-## Files
-- [ISN] FINAL - w_demographiccols-updated.csv: contains the dataset along with the demographic columns separately.
-- [ISN] FINAL - wo_demographiccols-updated.csv: contains only the joint demographic features.
+| Environment | Demographic Features | Norm | Label |
+|-------------|---------------------|------|-------|
+| Wedding ceremony | female; muslim; unmarried | Obtaining father's consent | Expected |
+| Mosque | muslim | Distributing votive food offerings | Normal |
+| Street | female | Lacking hijab completely in public | Taboo |
+
+*Note: All entries above are marked as "Specific" scope, meaning they are closely linked to Iranian culture.*
+
+## 🔧 Usage
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/hamidds/ISN
+cd ISN
+
+# Install required dependencies (optional, for analysis)
+pip install pandas numpy matplotlib seaborn
+```
+
+### Loading the Dataset
+
+```python
+import pandas as pd
+
+# Load dataset with separate demographic columns
+df_with_demo = pd.read_csv('[ISN] FINAL - w_demographiccols-updated.csv')
+
+# Load dataset with joint demographic features
+df_without_demo = pd.read_csv('[ISN] FINAL - wo_demographiccols-updated.csv')
+
+print(f"Dataset shape: {df_with_demo.shape}")
+print(f"Columns: {list(df_with_demo.columns)}")
+```
+
+### Example Analysis
+
+```python
+# Analyze label distribution
+label_dist = df_with_demo['Label'].value_counts(normalize=True)
+print("Label Distribution:")
+print(label_dist)
+
+# Filter Iran-specific norms
+iran_specific = df_with_demo[df_with_demo['Scope - EN'] == 'Specific']
+print(f"Iran-specific norms: {len(iran_specific)} ({len(iran_specific)/len(df_with_demo)*100:.1f}%)")
+
+# Examine demographic patterns
+demo_counts = df_with_demo['Demographic features - EN'].value_counts()
+print("Top demographic patterns:")
+print(demo_counts.head())
+```
+
+## 📁 Files
+
+| File | Description | Size |
+|------|-------------|------|
+| **`[ISN] FINAL - w_demographiccols-updated.csv`** | Complete dataset with separate demographic columns | ~1,699 rows |
+| **`[ISN] FINAL - wo_demographiccols-updated.csv`** | Dataset with joint demographic features only | ~1,699 rows |
+| **`README.md`** | This documentation file | - |
+| **`LICENSE`** | CC-BY-4.0 license file | - |
+
+### Data Format
+
+Both CSV files contain the following key columns:
+- `Norm - EN/FA`: Social norm description in English/Farsi
+- `Environment - EN/FA`: Setting/context in English/Farsi  
+- `Demographic features - EN/FA`: Relevant demographic information
+- `Label`: Classification (Expected/Normal/Taboo)
+- `Scope - EN`: Cultural specificity (Specific/General)
+
+## 🎯 Applications
+
+The ISN dataset can be used for:
+
+### Research Applications
+- **Social Norm Classification**: Train and evaluate models on culturally-specific norms
+- **Cross-Cultural Studies**: Compare Iranian norms with other cultural contexts
+- **Bias Detection**: Identify cultural biases in language models
+- **Cultural AI**: Develop culturally-aware AI systems
+
+### NLP Tasks
+- **Fine-tuning LLMs**: Improve cultural understanding of language models
+- **Evaluation Benchmarks**: Test model performance on cultural knowledge
+- **Prompt Engineering**: Design culturally-sensitive prompts
+- **Multilingual NLP**: Study norm classification across languages
+
+## 📈 Benchmark Results
+
+Our evaluation of 6 Large Language Models revealed significant challenges in understanding Iranian social norms:
+
+| Model | English (Iran Context) | Farsi | Best F1-Score |
+|-------|----------------------|-------|---------------|
+| GPT-4o | **0.609** | **0.581** | 0.609 |
+| Mixtral-8x7B | **0.611** | 0.531 | 0.611 |
+| Aya-23-8B | 0.578 | 0.532 | 0.578 |
+
+**Key Findings:**
+- All models showed suboptimal performance (best: 61% F1)
+- Performance significantly worse on Iran-specific norms vs. general norms
+- Adding geographic context ("in Iran") improved English performance but not Farsi
+- Models particularly struggled with "Normal" category norms
+
+## 🏗️ Methodology
+
+### Data Construction
+1. **Generation**: Used Claude (Anthropic) with carefully designed prompts
+2. **Validation**: Three native Farsi speakers reviewed and edited all samples
+3. **Annotation**: Independent labeling with majority vote (Fleiss' κ = 0.56)
+4. **Translation**: Professional translation to English with manual validation
+
+### Quality Assurance
+- Native Iranian annotators with deep cultural knowledge
+- Multiple rounds of validation and editing
+- Removal of irrelevant, repetitive, or nonsensical samples
+- Cross-linguistic consistency checks
+
+## 👥 Team
+
+**Authors:**
+- Hamidreza Saffari (Politecnico di Milano)
+- Mohammadamin Shafiei (University of Milan)  
+- Donya Rooein (Bocconi University)
+- Francesco Pierri (Politecnico di Milano)
+- Debora Nozza (Bocconi University)
 
 
-## 📝 Citation
+## 📚 Citation
 
-If you use these datasets in your research, please cite:
+If you use the ISN dataset in your research, please cite our NAACL 2025 paper:
 
 ```bibtex
-
 @inproceedings{saffari-etal-2025-introduce,
     title = "Can {I} Introduce My Boyfriend to My Grandmother? Evaluating Large Language Models Capabilities on {I}ranian Social Norm Classification",
     author = "Saffari, Hamidreza  and
@@ -99,20 +211,40 @@ If you use these datasets in your research, please cite:
     pages = "6060--6074",
     ISBN = "979-8-89176-195-7",
 }
-
 ```
 
-## License
+## ⚖️ License
 
-This dataset is licensed under the [CC-BY-4.0 License](LICENSE).
+This dataset is licensed under the [CC-BY-4.0 License](LICENSE), allowing for broad usage with attribution.
 
-## Acknowledgements
+## ⚠️ Ethical Considerations & Limitations
 
-We would like to thank the annotators and reviewers for their valuable contributions to this dataset.
+### Important Notes
+- This dataset represents norms as observed, not as behavioral prescriptions
+- Annotations reflect perspectives of Iranian university students studying abroad (limited demographic)
+- Social norms are dynamic and may change over time
+- The dataset may not capture all nuances of Iran's diverse cultural landscape
+- Generated using LLMs, which may introduce certain biases
+- Differences in annotator agreement highlight the subjective nature of cultural norms
+
+### Responsible Usage
+- Use for research and educational purposes
+- Acknowledge cultural context and avoid stereotyping
+- Consider the limitations when drawing conclusions
+- Respect the cultural sensitivity of the data
+
+## 🤝 Contributing
+
+We welcome contributions to improve the dataset! Please feel free to:
+- Report issues or inconsistencies
+- Suggest additional norms or environments
+- Propose improvements to annotations
+- Share your research results using ISN
+
+
+## 🙏 Acknowledgments
+
+We thank our dedicated annotators and reviewers for their valuable contributions to this dataset. This work represents a significant step toward building AI systems that better understand and respect cultural nuances in human society.
 
 ---
-
-Feel free to reach out if you have any questions or need further assistance.
-
-Happy researching!
 
